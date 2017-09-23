@@ -336,7 +336,7 @@
                 doFrame: function() {
 
                     this.update();
-                    this.move();
+                    // this.move();
                     this.render();
                 },
                 // 绘制需要的图形
@@ -421,25 +421,25 @@
                     this.canvas.width = window.innerWidth;
                     this.canvas.height = window.innerHeight;
 
-                    // 设置背景
-                    var canvas = document.createElement("canvas"),
-                        body = document.getElementsByTagName("body")[0],
-                        ctx = canvas.getContext("2d"),
-                        peekhole;
-                    canvas.style.cssText = "position: absolute;left: 0;top: 0;z-index: -1;"
-                    body.appendChild(canvas);
-                    canvas.width = window.innerWidth;
-                    canvas.height = window.innerHeight;
-                    // 设置圆渐变
-                    peekhole = ctx.createRadialGradient(canvas.width/2, canvas.height/2,
-                               1, canvas.width/2, canvas.height/2,  canvas.height);
+                    // // 设置背景
+                    // var canvas = document.createElement("canvas"),
+                    //     body = document.getElementsByTagName("body")[0],
+                    //     ctx = canvas.getContext("2d"),
+                    //     peekhole;
+                    // canvas.style.cssText = "position: absolute;left: 0;top: 0;z-index: -1;"
+                    // body.appendChild(canvas);
+                    // canvas.width = window.innerWidth;
+                    // canvas.height = window.innerHeight;
+                    // // 设置圆渐变
+                    // peekhole = ctx.createRadialGradient(canvas.width/2, canvas.height/2,
+                    //            1, canvas.width/2, canvas.height/2,  canvas.height);
 
-                    peekhole.addColorStop(0.0, "rgba(2, 15, 60, 1)");
-                    peekhole.addColorStop(0.5, "rgba(2, 15, 60, 1)");
-                    peekhole.addColorStop(0.7, "rgba(7, 86, 200, 1)");
-                    peekhole.addColorStop(1.0, "rgba(200, 260, 260, 1)");
-                    ctx.fillStyle = peekhole;
-                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                    // peekhole.addColorStop(0.0, "rgba(2, 15, 60, 1)");
+                    // peekhole.addColorStop(0.5, "rgba(2, 15, 60, 1)");
+                    // peekhole.addColorStop(0.7, "rgba(7, 86, 200, 1)");
+                    // peekhole.addColorStop(1.0, "rgba(200, 260, 260, 1)");
+                    // ctx.fillStyle = peekhole;
+                    // ctx.fillRect(0, 0, canvas.width, canvas.height);
                 },
                 getCacheParticles: function() {
                     var particles = [],
@@ -462,12 +462,12 @@
                             canvas: cacheCanvas,
                             ctx: cacheCtx,
                             branchNum: randomInt(22, 22),  // 树的数量
-                            r: randomInt(40, 40),  // 图形外廓大小，最长主枝的长度
+                            r: randomInt(200, 200),  // 图形外廓大小，最长主枝的长度
                             // maxDepth: randomInt(5, 5),  // 树的最大分支深度
                             maxDepth: randomInt(6, 6),  // 树的最大分支深度
                             alpha: randomFloat(1, 1), // 小图形透明度
                             // lScale: randomFloat(0.7, 0.8),  // 主枝与它直接分支的长度比例
-                            dAngle: randomFloat(0.5, 1.5),  // 图形分支之间夹角变化量，（单位为度）
+                            dAngle: randomFloat(0.5, 0.5),  // 图形分支之间夹角变化量，（单位为度）
                             angle: randomInt(20, 70),  // 分支和主枝的夹角
                             // maxAngle: randomInt(70, 90),  // 分支和主枝的最大夹角
                             maxAngle: 90,  // 分支和主枝的最大夹角
@@ -499,10 +499,10 @@
                         j = i % cacheNum;
                         this.particles[i] = {
                             cacheParticle: cacheParticles[j],
-                            x: ~~(Math.random() * canvas.width),
-                            y: ~~(Math.random() * canvas.height),
-                            vx: (Math.random() * 6 - 3),
-                            vy: (Math.random() * 6 - 3)
+                            x: ~~(canvas.width/2),
+                            y: ~~(canvas.height/2),
+                            vx: (Math.random() * 0 - 0),
+                            vy: (Math.random() * 0 - 0)
                         };
                     }
                 }
